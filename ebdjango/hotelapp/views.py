@@ -11,6 +11,13 @@ from .serializers import HotelSerializers
 def home(request):
     return HttpResponse("Hello Jongwon Shinn")
 
+def create(request):
+    return HttpResponse("Create")
+
+def read(request):
+    return HttpResponse("Read!")
+
+
 @api_view(['GET', 'POST'])
 def getListOfHotels(request):
     if request.method == 'GET':
