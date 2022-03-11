@@ -12,8 +12,9 @@ hotels = [
 {'id':2, 'name':'Halifax Hotel', 'price':'120', 'available':True},
 {'id':3, 'name':'Canada Hotel', 'price':'130', 'available':True},
 {'id':4, 'name':'Marriet Hotel', 'price':'140', 'available':True}
-
 ]
+
+
 def home(request):
     return HttpResponse('''
     <html>
@@ -42,4 +43,12 @@ def getListOfHotels(request):
 
         hotelSerializer = HotelSerializers(hotels, many=True)
 
+        return Response(hotelSerializer.data)
+
+
+@api_view(['GET', 'POST'])
+def Hotels_list(request):
+    if request.method == 'GET':
+        hotels_list = Hotel.objects.all()
+        hotelSerializer = HotelSerializers(hotels_list, many=True)
         return Response(hotelSerializer.data)
