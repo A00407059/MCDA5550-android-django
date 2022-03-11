@@ -7,15 +7,6 @@ from rest_framework.response import Response
 from .models import Hotel, ReservationList
 from .serializers import HotelSerializers, ReservationSerializers
 
-
-hotels = [
-{'id':1, 'name':'Holiday INN', 'price':'100', 'available':True},
-{'id':2, 'name':'Halifax Hotel', 'price':'120', 'available':True},
-{'id':3, 'name':'Canada Hotel', 'price':'130', 'available':True},
-{'id':4, 'name':'Marriet Hotel', 'price':'140', 'available':True}
-]
-
-
 def home(request):
     return HttpResponse('''
     <html>
@@ -30,24 +21,6 @@ def home(request):
     </html>   
     
     ''')
-
-def create(request):
-    return HttpResponse("Create")
-
-def read(request):
-    return HttpResponse("Read!")
-
-
-
-
-@api_view(['GET', 'POST'])
-def Hotels_list(request):
-    if request.method == 'GET':
-
-        hotelSerializer = HotelSerializers(hotels, many=True)
-
-        return Response(hotelSerializer.data)
-
 
 
 @api_view(['GET', 'POST'])
