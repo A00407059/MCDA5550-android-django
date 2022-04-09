@@ -4,20 +4,24 @@ from django.db import models
 
 class Hotel(models.Model):
 
-    name = models.CharField(max_length=200, null=False)
+    hotel_name = models.CharField(max_length=200, null=False)
     price = models.IntegerField()
-    available = models.BooleanField(null=True)
+    availability = models.BooleanField(null=True)
 
     def __str__(self):
-        return self.name
+        return self.hotel_name
 
 class ReservationList(models.Model):
 
     hotel_name = models.CharField(max_length=200, null=False)
     checkin = models.CharField(max_length=200, null=False)
     checkout = models.CharField(max_length=200, null=False)
-    guest_name = models.CharField(max_length=200, null=False)
-    gender = models.CharField(max_length=200, null=False)
 
     def __str__(self):
         return self.hotel_name
+
+class Guest(models.Model):
+    guest_name = models.CharField(max_length=200, null=True)
+    gender = models.CharField(max_length=200, null=True)
+    reservation = models.ForeignKey(ReservationList, on_delete=models.CASCADE,
+                                    related_name='guest_list')

@@ -4,8 +4,8 @@ from django.http import HttpResponse
 # Create your views here.
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Hotel, ReservationList
-from .serializers import HotelSerializers, ReservationSerializers
+from .models import Hotel, ReservationList, Guest
+from .serializers import HotelSerializers, ReservationSerializers, GuestSerializers
 
 def home(request):
     return HttpResponse('''
