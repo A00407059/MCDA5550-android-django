@@ -3,7 +3,7 @@
 This is djong app file for final project. 
 
 **It is updated after the subossion of assignment of Django, you can see the history. Please refer to this repo for final project of Android.
-(the previous README.md was deleted when I pushed for final django project)
+(the previous README.md was deleted unfortunately when I pushed for final django project)
 
 Steps to run
 
